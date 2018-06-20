@@ -25,13 +25,21 @@ ORDER BY (?p)
 """,
 
 1.1: """
-SELECT ?s WHERE {
-    ?s ns0:duo student:2345678 .
+SELECT ?studentName WHERE {
+    ?mary ns0:name "Mary" ;
+          ns0:duo ?student .
+    ?student ns0:name ?studentName
+}
+""",
+
+1.12: """
+SELECT ?student WHERE {
+    ?student ns0:duo student:2345678 .
 }
 """,
 
 1.2: """
-SELECT ?student ?name WHERE {
+SELECT DISTINCT ?student ?name WHERE {
     ?student ns0:registered ?ue .
     ?student ns0:name ?name .
     ?ue ns0:formation formation:m1if
@@ -45,23 +53,58 @@ SELECT DISTINCT ?first ?second WHERE {
 }
 """,
 
-2.1: """
+1.31: """
+SELECT DISTINCT ?s1 ?s2 WHERE{
+?s1 ns0:duo ?s2.
+{
+    {?s1 ns0:registered ?m} UNION
+    {?s2 ns0:registered ?m}
+}
+?m ns0:formation <http://univ-fu.de/formation#m1if>
+}
+""",
 
+2.1: """
+SELECT ?name WHERE {
+    ?course :name "XML" ;
+            :teached_by ?teacher .
+    ?teacher :name ?name
+}
 """,
 
 2.2: """
+SELECT ?name WHERE {
+    ?course :name "XML" ;
+            :prerequisites ?prereq .
+    ?prereq :name ?name .
+}
 """,
 
 2.3: """
+SELECT ?name WHERE {
+    ?first :teached_by ?teacher .
+    ?second :teached_by ?teacher .
+    ?teacher :name ?name .
+    FILTER(?first != ?second) .
+}
 """,
 
 2.4: """
+SELECT ?name WHERE {
+    ?first :teached_by ?teacher .
+    ?second :teached_by ?teacher .
+    ?student :registered_in ?first ;
+             :registered_in ?second ;
+             :name ?name .
+    FILTER(?first != ?second) .
+}
 """
 }
 
-query = preamble + queries[1.3]
+query = preamble + queries[1.31]
 print(query)
 results = g.query(query)
 
 for row in results:
     print("%s %s" % row)
+    #print("%s" % row)
