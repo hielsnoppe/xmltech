@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="authorType">
+        <xs:all> <!-- OR xs:sequence -->
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="firstname" type="xs:string" />
+            <xs:element name="country" type="xs:string" />
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="sectionType">
+        <xs:sequence>
+            <xs:element name="para" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="chapterType">
+        <xs:sequence>
+            <xs:element name="section" type="sectionType" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="reportType">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string" />
+            <xs:element name="author" type="authorType" />
+            <xs:element name="chapter" type="chapterType" />
+        </xs:sequence>
+        <xs:attribute name="langue" type="xs:string" default="english" use="optional"/>
+        <xs:attribute name="nbpage" type="xs:positiveInteger" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="articleType">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string" />
+            <xs:element name="author" type="authorType" />
+            <xs:element name="section" type="sectionType" />
+        </xs:sequence>
+        <xs:attribute name="langue" type="xs:string" default="english" use="optional"/>
+        <xs:attribute name="nbpage" type="xs:positiveInteger" use="required"/>
+    </xs:complexType>
+    <xs:element name="book">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="article" type="articleType"/>
+                <xs:element name="report" type="reportType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

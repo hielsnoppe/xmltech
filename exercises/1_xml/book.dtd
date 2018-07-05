@@ -1,0 +1,16 @@
+<!ELEMENT book (book | report | article)*>
+<!ELEMENT book (title, author+, chapter+)>
+<!ATTLIST book langue CDATA #REQUIRED nbpage CDATA #REQUIRED>
+<!ELEMENT chapter (section)+>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT nbpage (#PCDATA)>
+<!ELEMENT author (name, firstname, contry?)>
+<!ELEMENT name ( #PCDATA)>
+<!ELEMENT firstname (#PCDATA)>
+<!ELEMENT country (#PCDATA)>
+<!ELEMENT section (para)+>
+<!ELEMENT para (#PCDATA)>
+<!ELEMENT report (title, author+, chapter+)>
+<!ATTLIST report langue CDATA #REQUIRED nbpage CDATA #REQUIRED>
+<!ELEMENT article (title, author+, section+)>
+<!ATTLIST article langue CDATA #REQUIRED nbpage CDATA #REQUIRED>

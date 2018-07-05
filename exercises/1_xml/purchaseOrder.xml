@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<ipo:purchaseOrder
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ipo="http://www.altova.com/IPO"
+    orderDate="1999-12-01">
+    <ipo:shipTo export-code="1" xsi:type="ipo:EU-Address">
+        <ipo:name>Helen Zoe</ipo:name>
+        <ipo:street>47 Eden Street</ipo:street>
+        <ipo:city>Cambridge</ipo:city>
+        <ipo:postcode>126</ipo:postcode>
+    </ipo:shipTo>
+    <ipo:billTo xsi:type="ipo:US-Address">
+        <ipo:name>Robert Smith</ipo:name>
+        <ipo:street>8 Oak Avenue</ipo:street>
+        <ipo:city>Old Town</ipo:city>
+        <ipo:state>AK</ipo:state>
+        <ipo:zip>95819</ipo:zip>
+    </ipo:billTo>
+    <ipo:items>
+        <ipo:item partNum="833-AA">
+            <ipo:productName>Lapis necklace</ipo:productName>
+            <ipo:quantity>2</ipo:quantity>
+            <ipo:price>99.95</ipo:price>
+            <ipo:comment>Need this for the holidays!</ipo:comment>
+            <ipo:shipDate>1999-12-05</ipo:shipDate>
+        </ipo:item>
+        <ipo:item partNum="748-OT">
+            <ipo:productName>Diamond heart</ipo:productName>
+            <ipo:quantity>1</ipo:quantity>
+            <ipo:price>248.90</ipo:price>
+            <ipo:comment>Valentine's day packaging.</ipo:comment>
+            <ipo:shipDate>2000-02-14</ipo:shipDate>
+        </ipo:item>
+        <ipo:item partNum="783-KL">
+            <ipo:productName>Uncut diamond</ipo:productName>
+            <ipo:quantity>7</ipo:quantity>
+            <ipo:price>79.90</ipo:price>
+            <ipo:shipDate>2000-01-07</ipo:shipDate>
+        </ipo:item>
+        <ipo:item partNum="238-KK">
+            <ipo:productName>Amber ring</ipo:productName>
+            <ipo:quantity>3</ipo:quantity><ipo:price>89.90</ipo:price>
+            <ipo:comment>With no inclusions, please.</ipo:comment>
+            <ipo:shipDate>2000-01-07</ipo:shipDate>
+        </ipo:item>
+        <ipo:item partNum="229-OB">
+            <ipo:productName>Pearl necklace</ipo:productName>
+            <ipo:quantity>1</ipo:quantity>
+            <ipo:price>4879.00</ipo:price>
+            <ipo:shipDate>1999-12-05</ipo:shipDate>
+        </ipo:item>
+        <ipo:item partNum="128-UL">
+            <ipo:productName>Jade earring</ipo:productName>
+            <ipo:quantity>5</ipo:quantity>
+            <ipo:price>179.90</ipo:price>
+            <ipo:shipDate>2000-02-14</ipo:shipDate>
+        </ipo:item>
+    </ipo:items>
+</ipo:purchaseOrder>
